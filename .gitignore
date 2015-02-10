@@ -57,3 +57,6 @@ target/
 components/
 db.sqlite3
 local_settings.py
+
+# FenixEdu
+fenixedu.ini

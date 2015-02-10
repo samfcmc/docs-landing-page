@@ -1,0 +1,11 @@
+#Overwrite your app credentials
+
+[fenixedu]
+client_id=<client id>
+client_secret=<client secret>
+redirect_uri=<redirect URI>
+
+[DEFAULT]
+base_url=https://fenix.tecnico.ulisboa.pt/
+api_endpoint=api/fenix/
+api_version=1
