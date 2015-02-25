@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Type" 
     content="text/html; charset=utf-8">
     <title>FenixEdu Drive</title>
+    <link rel="stylesheet" type="text/css" 
+    href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" type="text/css" 
     href="{% static 'css/style.css' %}">
@@ -28,7 +30,10 @@
         <div class="content">
                     <h4>The new paperless academic archive!</h4>
                     <h1>FenixEdu Drive: Cloud-based Document Management</h1>
+
                     {% if user.is_authenticated %}
+                    <img alt="..." class="img-circle"
+                    src="data:image/png;base64,{{request.session.photo}}">
                     <p>You are already signed in to have early access
                     	since {{user.date_joined.day}}/{{user.date_joined.month}}/{{user.date_joined.year}}
                      {{user.date_joined.hour}}:{{user.date_joined.minute}}</p>
