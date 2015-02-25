@@ -1,6 +1,5 @@
 Django==1.7.4
 argparse==1.2.1
-django-bower==5.0.2
 django-extensions==1.5.0
 django-pipeline==1.4.5
 fenixedu==1.0.0

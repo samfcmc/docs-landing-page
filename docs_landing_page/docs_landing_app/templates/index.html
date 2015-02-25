@@ -1,83 +1,221 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" 
-		content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-		<meta name="author" content="">
 
-		<title>Docs</title>
+{% load static %}
 
-		{% load staticfiles %}
-		{% load static %}
-		{% load i18n %}
+<head>
+    <meta http-equiv="Content-Type" 
+    content="text/html; charset=utf-8">
+    <title>FenixEdu Drive</title>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" 
+    href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" 
+    href="{% static 'css/fonts.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="{% static 'js/slippry.min.js' %}"></script>
+    
+</head>
 
-		<link rel="stylesheet" 
-		href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
-		<link rel="stylesheet" 
-		href="{% static 'css/style.css' %}">
-		
-	</head>
+<body>
 
-	<body>
-		<div class="container">
+    <div class="section intro full">
+        <a href="#" id="logo-wrap">
+            <i class="logo"></i>
+        </a>
+        <div class="content">
+                    <h4>The new paperless academic archive!</h4>
+                    <h1>FenixEdu Drive: Cloud-based Document Management</h1>
+                    <a href="#receive-brochure" class="main-button">Early access</a>
 
-			<nav class="navbar navbar-default">
-		        <div class="container-fluid">
-		          <div class="navbar-header">
-		            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-		              <span class="sr-only">Toggle navigation</span>
-		              <span class="icon-bar"></span>
-		              <span class="icon-bar"></span>
-		              <span class="icon-bar"></span>
-		            </button>
-		            <a class="navbar-brand" href="#">Docs</a>
-		          </div>
-		          <div id="navbar" class="navbar-collapse collapse">
-		            <ul class="nav navbar-nav">
-		            </ul>
-		            <ul class="nav navbar-nav navbar-right">
-		            </ul>
-		          </div>
-		        </div>
-		    </nav>
+        </div>
+    </div>
 
-			{% if user.is_authenticated %}
+    <div class="section" id="topics">
+        <div class="wrap">
+            <img class="computer" 
+            src="{% static 'images/macbook-big.svg' %}" alt="">
+            <div class="section slideshow">
+                <div id="slideshow-overlay"></div>
+                <div id="slideshow-wrap">
+                    <ul id="galeria">
+                        <li>
+                            <a style="background-image: url({% static 'images/slideshow/1.png' %})">
+                            	<img src="{% static 'images/slideshow/3.png' %}" 
+                            	alt="Arco do Cego">
+                            </a>
+                        </li>
+                        <li>
+                            <a style="background-image: url({% static 'images/slideshow/2.png' %})">
+                            	<img src="{% static 'images/slideshow/4.png' %}" 
+                            	alt="Arco do Cego">
+                            </a>
+                        </li>
+                        <li>
+                            <a style="background-image: url({% static 'images/slideshow/3.png' %})">
+                            	<img src="{% static 'images/slideshow/5.png' %}" 
+                            	alt="Arco do Cego">
+                            </a>
+                        </li>
+                        <li>
+                            <a style="background-image: url({% static 'images/slideshow/4.png' %})">
+                            	<img src="{% static 'images/slideshow/5.png' %}" 
+                            	alt="Arco do Cego">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-			<!-- Logout button -->
-			<a href="{% url 'logout' %}" class="btn btn-default">
-				Logout
-			</a>
-			
-			<!-- User photo -->
-			<img src="data:image/png;base64,{{request.session.photo}}" 
-			alt="{{user.username}}"
-			class="img-circle">
+                <script>
+                $(function() {
+                    var galeria = $("#galeria").slippry({
+                        // transition: 'fade',
+                        // useCSS: true,
+                        // speed: 1000,
+                        // pause: 3000,
+                        // auto: true,
+                        // preload: 'visible',
+                        // autoHover: false
+                    });
 
-			<span>
-				Welcome {{user.get_full_name}}
-				{{user.username}}
-			</span>
+                    $('.stop').click(function() {
+                        galeria.stopAuto();
+                    });
 
-			{% else %}
+                    $('.start').click(function() {
+                        galeria.startAuto();
+                    });
 
-			<!-- Login button -->
-			<a href="{{auth_url}}" class="btn btn-default">
-				Login with FenixEdu
-			</a>
-			
-			{% endif %}
-		</div>
+                    $('.prev').click(function() {
+                        galeria.goToPrevSlide();
+                        return false;
+                    });
+                    $('.next').click(function() {
+                        galeria.goToNextSlide();
+                        return false;
+                    });
+                    $('.reset').click(function() {
+                        galeria.destroySlider();
+                        return false;
+                    });
+                    $('.reload').click(function() {
+                        galeria.reloadSlider();
+                        return false;
+                    });
+                    $('.init').click(function() {
+                        galeria = $("#demo1").slippry();
+                        return false;
+                    });
+                });
+                </script>
+            </div>
+        </div>
+        <div class="content">
+            <div class="side left">
+                <h1>What is wonderful about it</h1>
+            </div>
+            <div class="side right">
+                <ul>
+                    <li>It is cloud-based</li>
+                    <li>You can share docs with users and groups</li>
+                    <li>It keeps track of your document history</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-		<script type="text/javascript" 
-		src='{% static 'jquery/dist/jquery.min.js' %}'>
-		</script>
-		<script type="text/javascript" 
-		src='{% static 'bootstrap/dist/js/bootstrap.min.js' %}'>
-		</script>
+    <!-- <div class="section" id="one-of-15">
+        <div class="content">
+            <h1>One of 15 Europe’s top Engineering Schools</h1>
+            <p>Best Global Universities Rankings (BGUR) 2014</p>
+        </div>
+    </div>
 
-	</body>
+    <div class="section" id="about-lisbon">
+        <div class="content">
+            <h1>O que Lisboa tem para oferecer</h1>
+
+            <div id="video-blocks">
+                <div class="video-wrapper">
+                    <a href="#" target="_blank" class="first video" style="background-image: url(images/video-1.jpg)">
+                        <i class="icon"></i>
+                        <span class="content-name">About 11,500 students spread over the three campuses</span>
+                    </a>
+                </div>
+                <div class="video-wrapper">
+                    <a href="#" target="_blank" class="second video" style="background-image: url(images/video-2.jpg)">
+                        <i class="icon"></i>
+                        <span class="content-name">Lots of sunshine, 900km of sea coast</span>
+                    </a>
+                </div>
+                <div class="video-wrapper">
+                    <a href="#" target="_blank" class="third video" style="background-image: url(images/video-3.jpg)">
+                        <i class="icon"></i>
+                        <span class="content-name">Meet the amazing City of Lisbon</span>
+                    </a>
+                </div>
+                <div class="video-wrapper">
+                    <a href="#" target="_blank" class="fourth video" style="background-image: url(images/video-4.jpg)">
+                        <i class="icon"></i>
+                        <span class="content-name">Hear what our students say about us!</span>
+                    </a>
+                </div>
+            </div>
+            <p id="tuition-support"><strong>Tuition support</strong> está disponível para tetur adipiscing elit. Maecenas vitae sagittis arcu, id interdum dui. Etiam commodo, diam quis auctor cursus, dui turpis rhoncus diam.</p>
+        </div>
+    </div>
+
+    <div class="section" id="who-recruit">
+        <div class="content">
+            <h1>Who recruit our students?</h1>
+            <div class="logos">
+                <a href="" class="logo">
+                    <img src="images/logos/shell.svg" alt="Shell" />
+                </a>
+                <a href="" class="logo">
+                    <img src="images/logos/petobras.svg" alt="Petobras" />
+                </a>
+                <a href="" class="logo">
+                    <img src="images/logos/galp.svg" alt="Galp" />
+                </a>
+                <a href="" class="logo">
+                    <img src="images/logos/esso.svg" alt="Esso" />
+                </a>
+                <a href="" class="logo">
+                    <img src="images/logos/cepsa.svg" alt="Cepsa" />
+                </a>
+                <a href="" class="logo">
+                    <img src="images/logos/dong.svg" alt="Dong" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="receive-brochure" class="section full" style="background-image: url(images/receive-brochure-background.jpg)">
+        <div class="content">
+            <div class="vertical-aligned-content-wrap">
+                <div class="vertical-aligned-content">
+                    <h1>Begin your career today</h1>
+                    <p>Begin you career today by contactig one of our advisors</p>
+                    <form action="" method="post" id="receive-brochure-form">
+                        <input type="name" name="name" placeholder="Nome" autofocus>
+                        <input type="email" name="email" placeholder="Endereço de email">
+                        <label>
+                            <select>
+                                <option selected> Select Box </option>
+                                <option>Short Option</option>
+                                <option>This Is A Longer Option</option>
+                            </select>
+                        </label>
+                        <button class="main-action" type="submit">Receive Brochure</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</body>
 
 </html>
