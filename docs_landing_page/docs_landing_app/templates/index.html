@@ -28,7 +28,13 @@
         <div class="content">
                     <h4>The new paperless academic archive!</h4>
                     <h1>FenixEdu Drive: Cloud-based Document Management</h1>
-                    <a href="#receive-brochure" class="main-button">Early access</a>
+                    {% if user.is_authenticated %}
+                    <p>You are already signed in to have early access
+                    	since {{user.date_joined.day}}/{{user.date_joined.month}}/{{user.date_joined.year}}
+                     {{user.date_joined.hour}}:{{user.date_joined.minute}}</p>
+                    {% else %}
+                    <a href="{{auth_url}}" class="main-button">Early access</a>
+                    {% endif %}
 
         </div>
     </div>
