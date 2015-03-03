@@ -24,7 +24,7 @@ PROJECT_ROOT = os.path.abspath(
 SECRET_KEY = 'ms666^484-zqtyia8vlzk(+zui(^1g4#&o6z7qg*j^e-+@uz!k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
